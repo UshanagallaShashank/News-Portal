@@ -1,13 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import  bodyparser from "body-parser"
-import dotenv from "dotenv  "
+import dotenv from "dotenv";
+
 dotenv.config()
 const app = express();
 app.use(bodyparser.json())
 const port = 5000;
 
-const dbURI = "mongodb+srv://Admin:Admin123@mern-blog.kic5px9.mongodb.net/?retryWrites=true&w=majority"
+const dbURI = process.env.MONGO
 mongoose.connect(dbURI)
   .then(() => {
     console.log("MongoDB connected successfully!");
