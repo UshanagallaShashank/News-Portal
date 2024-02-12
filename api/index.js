@@ -11,7 +11,7 @@ const port = 5000;
 const dbURI = process.env.MONGO
 mongoose.connect(dbURI)
   .then(() => {
-    console.log("MongoDB connected successfully!");
+    console.log("MongoDB connected successfully...!");
     app.listen(port, () => console.log(`Server running on port ${port}!`));
   })
   .catch((err) => {
