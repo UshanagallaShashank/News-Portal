@@ -29,7 +29,7 @@ export default function Header() {
       </Button>
 
       <div className="flex gap-2 md:order-2">
-        <Button className="w-12 h-10  lg:hidden" color="gray" pill >
+        <Button className="w-12 h-10  " color="gray" pill >
           <FaMoon />
 
         </Button>

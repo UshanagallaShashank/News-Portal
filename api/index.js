@@ -1,4 +1,18 @@
-import express from "express"
-const app = express()
-const port = 5000
-app.listen(port, () => console.log(`Server running on port ${port}!`))
+import express from "express";
+import mongoose from "mongoose";
+import  bodyparser from "body-parser"
+import dotenv from "dotenv  "
+dotenv.config()
+const app = express();
+app.use(bodyparser.json())
+const port = 5000;
+
+const dbURI = "mongodb+srv://Admin:Admin123@mern-blog.kic5px9.mongodb.net/?retryWrites=true&w=majority"
+mongoose.connect(dbURI)
+  .then(() => {
+    console.log("MongoDB connected successfully!");
+    app.listen(port, () => console.log(`Server running on port ${port}!`));
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err.message);
+  });
