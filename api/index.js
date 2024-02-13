@@ -17,5 +17,15 @@ mongoose.connect(process.env.MONGO)
     console.error("Error connecting to MongoDB:", err.message);
   });
 
-  app.use("/api/user",userRoute);
-  app.use("/api/auth",authRoute)
+app.use("/api/user", userRoute);
+app.use("/api/auth", authRoute);
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal server error";
+  res.status(statusCode).json({
+      success: false,
+      statusCode,
+      message,
+  });
+});
