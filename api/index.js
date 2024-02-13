@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import  bodyparser from "body-parser"
 import dotenv from "dotenv";
+import userRoute from "./routes/user.route.js"
 
 dotenv.config()
 const app = express();
@@ -16,3 +17,5 @@ mongoose.connect(process.env.MONGO)
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err.message);
   });
+
+  app.use("/api/user",userRoute)
