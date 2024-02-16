@@ -91,10 +91,20 @@ export default function PostPage() {
           {post && (post.content.length / 1000).toFixed(0)} mins read
         </span>
       </div>
-      <div
-        className='p-3 max-w-2xl mx-auto w-full post-content'
-        dangerouslySetInnerHTML={{ __html: post && post.content }}
-      ></div>
+      <div className='p-3 max-w-2xl mx-auto w-full post-content-container'>
+  <div
+    className='post-content'
+    style={{
+      overflowX:"revert-layer",
+      wordWrap: 'break-word',
+      overflowY: 'scroll', // Add this line to enable vertical scrolling if needed
+      maxHeight: '100vh', // Add this line to limit the vertical height if needed
+    }}
+    dangerouslySetInnerHTML={{ __html: post && post.content }}
+  ></div>
+</div>
+
+
       <div className='max-w-4xl mx-auto w-full'>
         <CallToAction />
       </div>
