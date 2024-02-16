@@ -70,22 +70,32 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
+
+      {/* Theme Toggle (both for mobile and desktop) */}
+      <Button
+        className='w-12 h-10 hidden md:inline'
+        color='gray'
+        pill
+        onClick={() => dispatch(toggleTheme())}
+      >
+        {theme === 'light' ? <FaSun /> : <FaMoon />}
+      </Button>
+
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
       </Button>
 
-      {/* Theme Switch and User Options */}
-      <div className='flex gap-2 md:order-2'>
-        {/* Theme Toggle for Mobile View */}
-        <Button
-          className='w-12 h-10 md:hidden'
-          color='gray'
-          pill
-          onClick={() => dispatch(toggleTheme())}
-        >
-          {theme === 'light' ? <FaSun /> : <FaMoon />}
-        </Button>
+      {/* Theme Toggle for Mobile View */}
+      <Button
+        className='w-12 h-10 md:hidden'
+        color='gray'
+        pill
+        onClick={() => dispatch(toggleTheme())}
+      >
+        {theme === 'light' ? <FaSun /> : <FaMoon />}
+      </Button>
 
+      <div className='flex gap-2 md:order-2'>
         {currentUser ? (
           // User Dropdown
           <Dropdown
@@ -115,6 +125,8 @@ export default function Header() {
             </Button>
           </Link>
         )}
+
+        
 
         {/* Navbar Toggle */}
         <Navbar.Toggle />
