@@ -93,7 +93,7 @@ export default function PostPage() {
       </div>
       <div className='p-3 max-w-2xl mx-auto w-full post-content-container'>
   <div
-    className='post-content'
+    className='post-content indent-8'
     style={{
       overflowX:"revert-layer",
       wordWrap: 'break-word',
